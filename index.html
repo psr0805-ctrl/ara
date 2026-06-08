@@ -284,7 +284,7 @@ function renderIndex(){
     fl.appendChild(el);
   });
   const fg=document.getElementById('fgr');
-  CONFIG.facilities.forEach((f,i)=>{
+  CONFIG.facilities.slice(0,3).forEach((f,i)=>{
     const el=document.createElement('div');
     el.className='fcd';
     el.onclick=()=>{location.href=href('pages/facilities.html');};

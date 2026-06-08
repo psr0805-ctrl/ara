@@ -65,7 +65,7 @@ const CONFIG = {
     about_sub:  'images/main/main_04.jpg',
     fac_main:   'images/main/main_04.jpg',
     fac_sub:    'images/main/main_01.jpg',
-    fac_cards:  ['images/main/main_04.jpg','images/main/main_08.jpg','images/main/main_05.jpg'],
+    fac_cards:  ['images/main/main_04.jpg','images/main/main_08.jpg','images/main/main_05.jpg','images/main/main_09.jpg'],
     rooms: [
       ['images/room101/101_01.jpg','images/room101/101_02.jpg','images/room101/101_03.jpg','images/room101/101_04.jpg','images/room101/101_05.jpg','images/room101/101_06.jpg','images/room101/101_07.jpg','images/room101/101_08.jpg','images/room101/101_09.jpg','images/room101/101_10.jpg','images/room101/101_11.jpg','images/room101/101_12.jpg'],
       ['images/room102/102_01.jpg','images/room102/102_02.jpg','images/room102/102_03.jpg','images/room102/102_04.jpg','images/room102/102_05.jpg','images/room102/102_06.jpg','images/room102/102_07.jpg','images/room102/102_08.jpg','images/room102/102_09.jpg','images/room102/102_10.jpg','images/room102/102_11.jpg','images/room102/102_12.jpg'],
@@ -132,6 +132,7 @@ const CONFIG = {
     { icon:'', name:'옥상 인피니티풀', sub:'바다 전망 수영장', detail:'하늘과 바다가 맞닿은 옥상 인피니티풀입니다. 동해 바다를 바라보며 프라이빗한 물놀이를 즐기실 수 있습니다. 여름 성수기 운영하며, 수영복은 개별 지참해 주세요.' },
     { icon:'', name:'옥상 글램핑 테라스', sub:'일출 & 야경 명소', detail:'옥상에 마련된 글램핑 테라스입니다. 동해 일출과 별빛 가득한 밤하늘을 감상할 수 있는 특별한 공간으로, 캠핑 의자와 테이블이 제공됩니다.' },
     { icon:'', name:'바다 전망 데크', sub:'오션뷰 휴식 공간', detail:'탁 트인 동해 바다를 바라볼 수 있는 야외 데크입니다. BBQ와 휴식을 함께 즐기실 수 있으며, 영덕의 아름다운 해안 풍경을 만끽할 수 있습니다.' },
+    { icon:'', name:'BBQ 시설', sub:'야외 바비큐 공간', detail:'바다를 바라보며 즐기는 야외 BBQ 시설입니다. 그릴과 기본 집기가 제공되며, 식재료는 개별 준비하셔야 합니다. 가족·단체 모임에 안성맞춤입니다.' },
   ],
   fac_list: [
     { icon:'', text:'옥상 인피니티풀' },
