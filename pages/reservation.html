@@ -86,17 +86,20 @@ window.addEventListener('DOMContentLoaded',()=>{
 
   document.getElementById("t-price-note").textContent = CONFIG.price_note || "";
 
-  // 객실별 가격표 (시즌 × 요일)
+  // 시즌별 테이블 (각 테이블 안에 호실을 행으로)
   const seasons = CONFIG.seasons || [];
   const wrap = document.getElementById("price-tables");
-  CONFIG.rooms.forEach(r=>{
+  seasons.forEach((season, si)=>{
     const block = document.createElement("div");
-    block.style.marginBottom = "28px";
-    let html = "<h4 style=\"font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--g);\">"+r.tab+" · "+r.name+" <span style=\"font-weight:400;color:#888;font-size:.82rem;\">(기준 "+r.std+" / 최대 "+r.max+")</span></h4>";
-    html += "<table class=\"price-table\"><tr><th>구분</th><th>평일 (일~목)</th><th>금요일</th><th>토요일 (공휴일 전날)</th></tr>";
-    (r.price||[]).forEach((p,i)=>{
-      const period = seasons[i] ? seasons[i].period : "";
-      html += "<tr><td class=\"room-name\">"+p.season+(period?"<span style=\"display:block;font-size:.72rem;color:#999;font-weight:400;\">"+period+"</span>":"")+"</td><td>"+p.weekday+"</td><td>"+p.friday+"</td><td>"+p.saturday+"</td></tr>";
+    block.style.marginBottom = "32px";
+    let html = "<h4 style=\"font-size:1.05rem;font-weight:700;margin-bottom:10px;color:var(--g);\">"+season.name;
+    if(season.period){ html += " <span style=\"font-weight:400;color:#888;font-size:.84rem;\">("+season.period+")</span>"; }
+    html += "</h4>";
+    html += "<table class=\"price-table\"><tr><th>객실</th><th>평일 (일~목)</th><th>금요일</th><th>토요일 (공휴일 전날)</th></tr>";
+    CONFIG.rooms.forEach(r=>{
+      const p = (r.price||[])[si] || {};
+      html += "<tr><td class=\"room-name\">"+r.tab+" <span style=\"font-weight:400;color:#999;font-size:.78rem;\">(기준"+r.std+"/최대"+r.max+")</span></td>"+
+              "<td>"+(p.weekday||"-")+"</td><td>"+(p.friday||"-")+"</td><td>"+(p.saturday||"-")+"</td></tr>";
     });
     html += "</table>";
     block.innerHTML = html;
