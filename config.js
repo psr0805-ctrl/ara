@@ -70,8 +70,6 @@ const CONFIG = {
       ['images/room101/101_01.jpg','images/room101/101_02.jpg','images/room101/101_03.jpg','images/room101/101_04.jpg','images/room101/101_05.jpg','images/room101/101_06.jpg','images/room101/101_07.jpg','images/room101/101_08.jpg','images/room101/101_09.jpg','images/room101/101_10.jpg','images/room101/101_11.jpg','images/room101/101_12.jpg'],
       ['images/room102/102_01.jpg','images/room102/102_02.jpg','images/room102/102_03.jpg','images/room102/102_04.jpg','images/room102/102_05.jpg','images/room102/102_06.jpg','images/room102/102_07.jpg','images/room102/102_08.jpg','images/room102/102_09.jpg','images/room102/102_10.jpg','images/room102/102_11.jpg','images/room102/102_12.jpg'],
       ['images/room103/103_01.jpg','images/room103/103_02.jpg','images/room103/103_03.jpg','images/room103/103_04.jpg','images/room103/103_05.jpg','images/room103/103_06.jpg','images/room103/103_07.jpg','images/room103/103_08.jpg','images/room103/103_09.jpg','images/room103/103_10.jpg','images/room103/103_11.jpg','images/room103/103_12.jpg'],
-      ['images/room105/105_01.jpg','images/room105/105_02.jpg','images/room105/105_03.jpg','images/room105/105_04.jpg','images/room105/105_05.jpg','images/room105/105_06.jpg','images/room105/105_07.jpg','images/room105/105_08.jpg','images/room105/105_09.jpg','images/room105/105_10.jpg','images/room105/105_11.jpg','images/room105/105_12.jpg'],
-      ['images/room106/106_01.jpg','images/room106/106_02.jpg','images/room106/106_03.jpg','images/room106/106_04.jpg','images/room106/106_05.jpg','images/room106/106_06.jpg','images/room106/106_07.jpg','images/room106/106_08.jpg','images/room106/106_09.jpg','images/room106/106_10.jpg','images/room106/106_11.jpg','images/room106/106_12.jpg'],
       ['images/room201/201_01.jpg','images/room201/201_02.jpg','images/room201/201_03.jpg','images/room201/201_04.jpg','images/room201/201_05.jpg','images/room201/201_06.jpg','images/room201/201_07.jpg','images/room201/201_08.jpg','images/room201/201_09.jpg','images/room201/201_10.jpg','images/room201/201_11.jpg','images/room201/201_12.jpg'],
     ],
     spots: ['','','',''],
@@ -84,42 +82,48 @@ const CONFIG = {
       desc:'옥상 글램핑 테라스와 바다 전망을 갖춘 복층 객실입니다. 통나무 인테리어로 아늑하며, 옥상에서 동해 일출과 야경을 감상할 수 있습니다.',
       detail:'옥상 글램핑 테라스가 매력적인 복층 객실입니다. 따뜻한 원목 인테리어로 꾸며져 있으며, 넓은 창으로 푸른 동해 바다가 한눈에 들어옵니다. 옥상 테라스에서는 일출과 야경을 모두 즐기실 수 있어 커플과 가족 모두에게 인기입니다.',
       amenities:['복층','오션뷰','옥상 테라스','글램핑','주방','원목 인테리어'],
-      std:'2~4인', max:'6인', size:'복층 독채',
+      std:'2인', max:'3인',
+      price:[
+        { season:'비성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+        { season:'준성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+        { season:'극성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+      ],
     },
     {
       no:'102', name:'아라 102호', tab:'102호',
-      desc:'원목 감성의 복층 객실로, 여러 개의 침실과 넓은 거실을 갖추고 있습니다. 바다 전망 테라스에서 노을을 감상하세요.',
-      detail:'따뜻한 원목으로 마감된 복층 객실입니다. 넓은 거실과 다수의 침실로 가족 단위 여행객에게 적합하며, 야외 테라스에서 동해의 일몰을 감상할 수 있습니다.',
-      amenities:['복층','오션뷰','테라스','다인실','주방','원목 인테리어'],
-      std:'4~6인', max:'8인', size:'복층 독채',
+      desc:'원목 감성의 복층 객실로, 바다 전망 테라스에서 노을을 감상할 수 있습니다.',
+      detail:'따뜻한 원목으로 마감된 복층 객실입니다. 아늑한 실내와 야외 테라스에서 동해의 일몰을 감상할 수 있어 편안한 휴식을 선사합니다.',
+      amenities:['복층','오션뷰','테라스','주방','원목 인테리어'],
+      std:'2인', max:'3인',
+      price:[
+        { season:'비성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+        { season:'준성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+        { season:'극성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+      ],
     },
     {
       no:'103', name:'아라 103호', tab:'103호',
-      desc:'탁 트인 거실과 일출 테라스가 돋보이는 복층 객실입니다. 넓은 공간에서 편안한 휴식을 즐기실 수 있습니다.',
+      desc:'탁 트인 거실과 일출 테라스가 돋보이는 복층 객실입니다.',
       detail:'개방감 있는 넓은 거실이 인상적인 복층 객실입니다. 큰 창으로 들어오는 햇살과 바다 전망이 일품이며, 테라스에서 맞이하는 일출이 특별한 추억을 선사합니다.',
-      amenities:['복층','오션뷰','일출 테라스','넓은 거실','주방'],
-      std:'4~6인', max:'8인', size:'복층 독채',
-    },
-    {
-      no:'105', name:'아라 105호', tab:'105호',
-      desc:'옥상 수영장과 바다 전망을 갖춘 프리미엄 복층 객실입니다. 인피니티풀에서 바다를 바라보며 여유를 즐기세요.',
-      detail:'옥상 인피니티풀을 갖춘 프리미엄 복층 객실입니다. 하늘과 바다가 맞닿은 수영장에서 프라이빗한 물놀이를 즐길 수 있으며, 넓은 실내 공간과 바다 전망이 어우러져 최고의 휴식을 선사합니다.',
-      amenities:['복층','오션뷰','옥상 수영장','인피니티풀','주방','테라스'],
-      std:'4~6인', max:'10인', size:'복층 독채',
-    },
-    {
-      no:'106', name:'아라 106호', tab:'106호',
-      desc:'모던한 주방과 넓은 복층 공간을 갖춘 객실입니다. 바다 전망 테라스에서 편안한 시간을 보내세요.',
-      detail:'세련된 모던 주방과 넓은 복층 구조가 돋보이는 객실입니다. 깔끔한 인테리어와 바다 전망 테라스가 조화를 이루며, 단체 모임이나 가족 여행에 적합합니다.',
-      amenities:['복층','오션뷰','모던 주방','테라스','다인실'],
-      std:'4~6인', max:'8인', size:'복층 독채',
+      amenities:['복층','오션뷰','일출 테라스','거실','주방'],
+      std:'2인', max:'3인',
+      price:[
+        { season:'비성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+        { season:'준성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+        { season:'극성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+      ],
     },
     {
       no:'201', name:'아라 201호', tab:'201호',
       desc:'옥상 글램핑과 노을 테라스를 갖춘 2층 복층 객실입니다. 가장 높은 곳에서 탁 트인 동해 전망을 만끽하세요.',
-      detail:'펜션에서 가장 높은 곳에 위치한 복층 객실입니다. 옥상 글램핑 테라스에서 360도 탁 트인 바다 전망과 노을을 감상할 수 있으며, 넓은 거실과 주방으로 단체 여행에도 손색이 없습니다.',
-      amenities:['복층','파노라마 오션뷰','옥상 글램핑','노을 테라스','주방','다인실'],
-      std:'4~6인', max:'10인', size:'복층 독채',
+      detail:'펜션에서 가장 높은 곳에 위치한 복층 객실입니다. 옥상 글램핑 테라스에서 360도 탁 트인 바다 전망과 노을을 감상할 수 있습니다.',
+      amenities:['복층','파노라마 오션뷰','옥상 글램핑','노을 테라스','주방'],
+      std:'2인', max:'3인',
+      price:[
+        { season:'비성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+        { season:'준성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+        { season:'극성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
+      ],
     },
   ],
 
@@ -146,14 +150,12 @@ const CONFIG = {
     { icon:'', name:'블루로드',       dist:'인근',     desc:'영덕 해안을 따라 이어지는 도보 여행길. 푸른 동해를 끼고 걷는 아름다운 트레킹 코스입니다.' },
   ],
 
-  /* 9. 예약안내 요금표 */
-  pricing: [
-    { room:'101호', capacity:'기준2/최대6',  weekday:'미정', friday:'미정', saturday:'미정', sunday:'미정' },
-    { room:'102호', capacity:'기준4/최대8',  weekday:'미정', friday:'미정', saturday:'미정', sunday:'미정' },
-    { room:'103호', capacity:'기준4/최대8',  weekday:'미정', friday:'미정', saturday:'미정', sunday:'미정' },
-    { room:'105호', capacity:'기준4/최대10', weekday:'미정', friday:'미정', saturday:'미정', sunday:'미정' },
-    { room:'106호', capacity:'기준4/최대8',  weekday:'미정', friday:'미정', saturday:'미정', sunday:'미정' },
-    { room:'201호', capacity:'기준4/최대10', weekday:'미정', friday:'미정', saturday:'미정', sunday:'미정' },
+  /* 9. 예약안내 요금표 (객실별 가격은 위 rooms의 price 사용. 여기선 시즌 기간 안내) */
+  price_note: '※ 요금은 인원 및 시즌에 따라 변동될 수 있습니다. 정확한 요금은 예약 문의 시 확인해 주세요.',
+  seasons: [
+    { name:'비성수기', period:'성수기 외 기간' },
+    { name:'준성수기', period:'7.17~7.23 / 8.3~8.16' },
+    { name:'극성수기', period:'7.24~8.2' },
   ],
 
   /* 10. 예약/이용안내 */
