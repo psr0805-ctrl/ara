@@ -2,18 +2,16 @@
    common.js — 공통 네비/푸터 렌더링 (수정 불필요)
    ================================================================ */
 
-// 깃허브 Pages 경로 자동 감지
-const IS_LOCAL = location.hostname === 'localhost' || location.protocol === 'file:';
-const BASE = IS_LOCAL ? '' : '/' + (location.pathname.split('/').filter(Boolean)[0] || '');
-const ROOT = BASE + '/';
-
-function img(path){ return BASE + '/' + path.replace(/^\//,''); }
-
-// pages/ 폴더 안인지 감지
+// 현재 HTML 파일 위치 기준 상대경로 (깃허브/카페24/하위폴더 모두 작동)
+// pages/ 폴더 안이면 ../ 로 루트까지 올라감
 const IN_PAGES = location.pathname.includes('/pages/');
 const PAGE_ROOT = IN_PAGES ? '../' : '';
 
-function href(path){ return BASE + '/' + path; }
+// 이미지: 항상 루트 기준 상대경로로
+function img(path){ return PAGE_ROOT + path.replace(/^\//,''); }
+
+// 링크: 루트 기준 상대경로
+function href(path){ return PAGE_ROOT + path; }
 
 // 테마 적용
 function applyTheme(){
@@ -38,7 +36,7 @@ function renderNav(activePage){
     { label:'객실안내', href:'pages/rooms.html', sub:
       CONFIG.rooms.map(r => ({ label: r.tab, href: 'pages/room-' + r.no + '.html' }))
     },
-    { label:'부대시설', href:'pages/facilities.html', sub:[] },
+    { label:'스페셜', href:'pages/facilities.html', sub:[] },
     { label:'주변관광', href:'pages/spots.html', sub:[] },
     { label:'예약/문의', href:'pages/reservation.html', sub:[
       { label:'예약안내',      href:'pages/reservation.html' },
@@ -75,7 +73,6 @@ function renderNav(activePage){
     '<div class="nav-inner">' +
       '<a href="' + href('index.html') + '" class="nlogo">' + p.name_en + '<small>' + p.name_ko + '</small></a>' +
       '<ul class="nav-menu">' + desktopMenu + '</ul>' +
-      '<a href="' + CONFIG.contact.kakao_url + '" target="_blank" class="nrsv">실시간 문의</a>' +
       '<button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="메뉴"><span></span><span></span><span></span></button>' +
     '</div>';
 
@@ -86,7 +83,7 @@ function renderNav(activePage){
     mob.id = 'mobile-menu';
     document.body.appendChild(mob);
   }
-  mob.innerHTML = mobileMenu + '<a href="' + CONFIG.contact.kakao_url + '" target="_blank" class="mob-rsv">실시간 문의하기</a>';
+  mob.innerHTML = mobileMenu;
 
   // 스크롤
   window.addEventListener('scroll', () => {
@@ -124,15 +121,15 @@ function renderFooter(){
       '<div class="footer-col"><h4>Quick Menu</h4>' +
         '<a href="' + href('pages/about.html') + '">펜션소개</a>' +
         '<a href="' + href('pages/rooms.html') + '">객실안내</a>' +
-        '<a href="' + href('pages/facilities.html') + '">부대시설</a>' +
+        '<a href="' + href('pages/facilities.html') + '">스페셜</a>' +
         '<a href="' + href('pages/spots.html') + '">주변관광</a>' +
         '<a href="' + href('pages/reservation.html') + '">예약/문의</a>' +
       '</div>' +
       '<div class="footer-col"><h4>Contact</h4>' +
-        '<p>📞 ' + c.tel + '</p>' +
-        '<p>📍 ' + c.address + '</p>' +
+        '<p>' + c.tel + '</p>' +
+        '<p>' + c.address + '</p>' +
+        '<p>' + c.bank + '</p>' +
         '<p>체크인 ' + c.checkin + ' · 체크아웃 ' + c.checkout + '</p>' +
-        '<a href="' + c.kakao_url + '" style="margin-top:10px;display:inline-block;background:#FEE500;color:#3a1d1d;padding:7px 16px;font-size:.78rem;font-weight:700;text-decoration:none;">💬 카카오톡 문의</a>' +
       '</div>' +
     '</div>' +
     '<div class="footer-bottom">ⓒ ' + b.year + ' ' + p.name_ko + '. All rights reserved.</div>';

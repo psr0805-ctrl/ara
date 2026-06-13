@@ -24,11 +24,13 @@ const CONFIG = {
 
   /* 2. 연락처 */
   contact: {
-    tel:            '010-0000-0000',
+    tel:            '010-2105-0876',
     kakao_url:      '#',
     naver_url:      '#',
-    address:        '경상북도 영덕군',
-    address_detail: '(정확한 주소는 예약 확인 후 안내)',
+    address:        '경상북도 영덕군 영덕읍 해맞이길 123',
+    address_detail: '영덕 아라펜션',
+    bank:           '농협 351-0645-7470-43',
+    bank_holder:    '예금주 : 김아라',
     checkin:        '15:00',
     checkout:       '11:00',
     directions:     '영덕 시내 약 15분 · 강구항 약 20분<br>영덕 IC에서 약 25분',
@@ -125,6 +127,18 @@ const CONFIG = {
         { season:'극성수기',  weekday:'미정', friday:'미정', saturday:'미정' },
       ],
     },
+  ],
+
+  /* 7-1. 스페셜 — 영덕만의 특별한 경험 */
+  special: [
+    { img:'images/special/sunrise.jpg', name:'동해 일출 명소', tag:'SUNRISE',
+      desc:'객실과 옥상 테라스에서 동해 수평선 위로 떠오르는 일출을 감상할 수 있습니다. 영덕 해맞이공원이 인근에 있어 새해 일출 명소로도 손꼽힙니다.' },
+    { img:'images/special/crab.jpg', name:'영덕 대게', tag:'KING CRAB',
+      desc:'전국적으로 유명한 영덕 대게의 본고장. 강구항에서 차로 20분 거리로, 제철(11~4월) 싱싱한 대게와 해산물을 맛보실 수 있습니다.' },
+    { img:'images/special/wind.jpg', name:'영덕 풍력발전단지', tag:'WIND FARM',
+      desc:'언덕 위로 늘어선 거대한 풍력발전기가 만들어내는 이국적인 풍경. 드라이브 코스이자 인생샷 명소로 인기 있는 영덕의 랜드마크입니다.' },
+    { img:'images/special/bluroad.jpg', name:'영덕 블루로드', tag:'BLUE ROAD',
+      desc:'영덕 해안을 따라 이어지는 도보 여행길. 푸른 동해를 끼고 걷는 아름다운 트레킹 코스로, 사계절 내내 멋진 바다 풍경을 즐길 수 있습니다.' },
   ],
 
   /* 7. 부대시설 */
