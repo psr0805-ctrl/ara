@@ -74,7 +74,7 @@ const CONFIG = {
       ['images/room103/103_01.jpg','images/room103/103_02.jpg','images/room103/103_03.jpg','images/room103/103_04.jpg','images/room103/103_05.jpg','images/room103/103_06.jpg','images/room103/103_07.jpg','images/room103/103_08.jpg','images/room103/103_09.jpg','images/room103/103_10.jpg','images/room103/103_11.jpg','images/room103/103_12.jpg'],
       ['images/room201/201_01.jpg','images/room201/201_02.jpg','images/room201/201_03.jpg','images/room201/201_04.jpg','images/room201/201_05.jpg','images/room201/201_06.jpg','images/room201/201_07.jpg','images/room201/201_08.jpg','images/room201/201_09.jpg','images/room201/201_10.jpg','images/room201/201_11.jpg','images/room201/201_12.jpg'],
     ],
-    spots: ['','','',''],
+    spots: ['images/spots/spot1_haemaji.jpg','images/spots/spot2_wind.jpg','images/spots/spot3_ganggu.jpg','images/spots/spot4_samsa.jpg'],
   },
 
   /* 6. 객실 정보 */
@@ -160,9 +160,9 @@ const CONFIG = {
   /* 8. 주변관광 */
   spots: [
     { icon:'', name:'영덕 해맞이공원', dist:'차량 15분', desc:'동해 일출 명소로 유명한 해맞이공원. 산책로를 따라 탁 트인 바다 전망과 등대를 감상할 수 있습니다.' },
-    { icon:'', name:'강구항',         dist:'차량 20분', desc:'영덕 대게로 유명한 항구. 신선한 해산물과 대게 요리를 맛볼 수 있는 영덕의 대표 명소입니다.' },
     { icon:'', name:'영덕 풍력발전단지', dist:'차량 20분', desc:'언덕 위 풍력발전기가 만들어내는 이국적인 풍경. 드라이브 코스와 사진 촬영 명소로 인기입니다.' },
-    { icon:'', name:'블루로드',       dist:'인근',     desc:'영덕 해안을 따라 이어지는 도보 여행길. 푸른 동해를 끼고 걷는 아름다운 트레킹 코스입니다.' },
+    { icon:'', name:'강구항',         dist:'차량 20분', desc:'영덕 대게로 유명한 항구. 신선한 해산물과 대게 요리를 맛볼 수 있는 영덕의 대표 명소입니다.' },
+    { icon:'', name:'삼사해상공원',     dist:'차량 25분', desc:'바다 위로 설치된 해상 산책로가 인상적인 공원. 잔잔한 동해 바다와 아름다운 일출·석양을 감상할 수 있습니다.' },
   ],
 
   /* 9. 예약안내 요금표 (객실별 가격은 위 rooms의 price 사용. 여기선 시즌 기간 안내) */
