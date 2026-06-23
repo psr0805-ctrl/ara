@@ -149,3 +149,81 @@ function initReveal(){
     }
   });
 }
+
+/* ── 팝업 공지 ── */
+function renderPopup(){
+  const pop = CONFIG.popup;
+  if(!pop || !pop.enabled) return;
+
+  // '오늘 하루 보지 않기' 체크 (localStorage)
+  try {
+    const hideUntil = localStorage.getItem('ara_popup_hide');
+    if(hideUntil && Date.now() < parseInt(hideUntil)) return;
+  } catch(e){}
+
+  const wrap = document.createElement('div');
+  wrap.id = 'site-popup';
+  const c = CONFIG.theme;
+
+  const imgHtml  = pop.image ? '<img src="'+img(pop.image)+'" alt="'+pop.title+'" class="pop-img">' : '';
+  const linkHtml = pop.link
+    ? '<a href="'+href(pop.link)+'" class="pop-link">'+(pop.link_text||'자세히 보기')+'</a>'
+    : '';
+
+  wrap.innerHTML =
+    '<div class="pop-dim" onclick="closePopup()"></div>' +
+    '<div class="pop-box">' +
+      '<button class="pop-x" onclick="closePopup()" aria-label="닫기">&times;</button>' +
+      imgHtml +
+      '<div class="pop-body">' +
+        '<h3 class="pop-title">'+pop.title+'</h3>' +
+        '<p class="pop-text">'+pop.text+'</p>' +
+        linkHtml +
+      '</div>' +
+      '<div class="pop-foot">' +
+        '<label class="pop-hide"><input type="checkbox" id="pop-today"> 오늘 하루 보지 않기</label>' +
+        '<button class="pop-close-btn" onclick="closePopup()">닫기</button>' +
+      '</div>' +
+    '</div>';
+
+  // 스타일 주입 (1회)
+  if(!document.getElementById('popup-style')){
+    const st = document.createElement('style');
+    st.id = 'popup-style';
+    st.textContent =
+      '#site-popup{position:fixed;inset:0;z-index:600;display:flex;align-items:center;justify-content:center;padding:20px;animation:popIn .3s ease;}' +
+      '.pop-dim{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(2px);}' +
+      '.pop-box{position:relative;background:#fff;width:100%;max-width:380px;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:1;}' +
+      '.pop-x{position:absolute;top:10px;right:12px;background:rgba(0,0,0,.35);color:#fff;border:none;width:30px;height:30px;border-radius:50%;font-size:1.3rem;line-height:1;cursor:pointer;z-index:2;}' +
+      '.pop-x:hover{background:rgba(0,0,0,.55);}' +
+      '.pop-img{width:100%;height:200px;object-fit:cover;display:block;}' +
+      '.pop-body{padding:24px 24px 18px;text-align:center;}' +
+      '.pop-title{font-family:"Nanum Myeongjo",serif;font-size:1.4rem;font-weight:800;margin-bottom:12px;color:#1c1c1c;}' +
+      '.pop-text{font-size:.95rem;color:#555;line-height:1.7;}' +
+      '.pop-link{display:inline-block;margin-top:18px;background:'+c.g+';color:#fff;padding:11px 28px;border-radius:30px;font-size:.88rem;font-weight:700;text-decoration:none;transition:opacity .2s;}' +
+      '.pop-link:hover{opacity:.88;}' +
+      '.pop-foot{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:#f6f6f4;border-top:1px solid #eee;}' +
+      '.pop-hide{font-size:.82rem;color:#888;cursor:pointer;display:flex;align-items:center;gap:6px;}' +
+      '.pop-hide input{cursor:pointer;}' +
+      '.pop-close-btn{background:none;border:none;font-size:.85rem;color:#555;font-weight:600;cursor:pointer;}' +
+      '.pop-close-btn:hover{color:#1c1c1c;}' +
+      '@keyframes popIn{from{opacity:0}to{opacity:1}}' +
+      '@media(max-width:480px){.pop-img{height:160px;}.pop-body{padding:20px;}}';
+    document.head.appendChild(st);
+  }
+
+  document.body.appendChild(wrap);
+}
+
+function closePopup(){
+  // '오늘 하루 보지 않기' 체크됐으면 저장
+  const cb = document.getElementById('pop-today');
+  if(cb && cb.checked){
+    try {
+      const tomorrow = Date.now() + 24*60*60*1000;
+      localStorage.setItem('ara_popup_hide', String(tomorrow));
+    } catch(e){}
+  }
+  const el = document.getElementById('site-popup');
+  if(el) el.remove();
+}

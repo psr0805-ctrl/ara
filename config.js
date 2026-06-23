@@ -37,6 +37,18 @@ const CONFIG = {
     nearby:         '영덕 해맞이공원 · 강구항<br>풍력발전단지 · 블루로드',
   },
 
+  /* ★ 팝업 공지 (켜고 끄기) ★
+     enabled를 true → false 로 바꾸면 팝업이 사라집니다.
+     image는 비워두면('') 텍스트만 나옵니다. link도 비워두면 클릭 이동 없음. */
+  popup: {
+    enabled: true,
+    title:   '🎤 노래방 시설 오픈!',
+    image:   'images/popup/karaoke.jpg',  // 비워두면('') 텍스트만 나옵니다
+    text:    '신규 노래방 시설이 오픈했습니다.<br>객실 예약 시 무료로 이용 가능합니다!',
+    link:    '',                          // 예: 'pages/facilities.html'
+    link_text: '자세히 보기',
+  },
+
   /* 3. 사업자 정보 */
   biz: {
     reg_no: '000-00-00000',
